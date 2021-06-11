@@ -1,0 +1,295 @@
+@media screen and (max-width: 1280px) {
+  .dashboard {
+    flex-wrap: wrap;
+  }
+
+  /* Header CSS Code */
+  header {
+    width: 100%;
+    height: 10%;
+    flex-direction: row;
+    padding: 0 30px;
+  }
+
+  header .gnb {
+    display: flex;
+    justify-content: center;
+  }
+
+  header .gnb a {
+    padding: 0 15px;
+  }
+
+  /* Graph-ui Content Style Code */
+  .graph-ui {
+    width: calc(65% - 20px);
+    height: calc(90% - 10px);
+    margin-top: 10px;
+  }
+
+  /* Table-ui Content Style Code */
+  .table-ui {
+    _width: 40%;
+    height: calc(90% - 10px);
+    margin-top: 10px;
+  }
+
+  /* Pie Chart Style Code */
+  .chart {
+    width: 90px;
+    height: 90px;
+  }
+
+  /* Insert Form Page Style Code */
+  .graph-ui div.input-con textarea {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  /* Graph-ui Content Style Code */
+  .graph-ui > div.each-pofol {
+    height: 26%;
+  }
+  .graph-ui > div.total-pofol {
+    height: 40%;
+  }
+
+  /* Pie Chart Style Code */
+  .chart {
+    width: 100%;
+    height: 100%;
+  }
+
+  .chart canvas {
+    _width: 70% !important;
+    _height: auto !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .graph-ui .each-pofol .each-graph div b {
+    display: none;
+  }
+
+  .graph-ui .each-pofol .each-graph div i {
+    display: block;
+  }
+
+  .graph-ui > div.total-pofol div.total-chart {
+    width: 50%;
+  }
+
+  div.total-txt {
+    width: 50%;
+  }
+
+  /* Insert Form Page Style Code */
+  .graph-ui > div.input-box {
+    height: calc(60% - 10px);
+  }
+
+  .graph-ui .input-con textarea {
+    height: 180px;
+  }
+
+  /* Modal Content Style Code */
+  .modal-content .rate-form {
+    flex-wrap: wrap;
+  }
+  .modal-content .rate-form p {
+    width: 50%;
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    display: block;
+    height: auto;
+    min-height: auto;
+  }
+  .dashboard {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+
+  header {
+    padding: 15px;
+  }
+  /* Graph-ui Content Style Code */
+  .graph-ui {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+
+  .graph-ui > div {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+  .graph-ui > div.each-pofol {
+    height: auto;
+  }
+
+  .graph-ui div.intro .slide-box {
+    border-radius: 15px;
+  }
+
+  .graph-ui .each-pofol .each-title {
+    height: auto;
+    padding: 10px 0 10px 5px;
+  }
+
+  .graph-ui .each-pofol .each-graph div {
+    height: 120px;
+  }
+
+  .graph-ui > div.total-pofol {
+    height: 250px;
+  }
+
+  /* Table-ui Content Style Code */
+  .table-ui {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+
+  div.total-txt {
+    padding-left: 30px;
+  }
+
+  div.total-txt h3 {
+    font-size: 16px;
+  }
+
+  div.total-txt p {
+    font-size: 14px;
+  }
+
+  div.total-txt button {
+    font-size: 12px;
+  }
+  .chart {
+    width: 100%;
+    height: 100%;
+  }
+
+  .chart canvas {
+    _width: auto !important;
+    _height: 75% !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Modal Content Style Code */
+  .modal-content .rate-form p {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  header h2 {
+    width: 20px;
+  }
+  /* Header CSS Code */
+  header .gnb {
+    display: none;
+  }
+
+  header .sign-out {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .custom-font {
+    font-size: 60px;
+  }
+  /* Graph-ui */
+  .graph-ui div.intro .slide-box {
+    padding: 20px 50px;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .graph-ui div.intro h2 {
+    font-size: 18px;
+  }
+
+  .graph-ui div.intro p {
+    display: none;
+  }
+
+  .graph-ui .each-pofol .each-graph {
+    flex-wrap: wrap;
+  }
+  .graph-ui .each-pofol .each-graph div {
+    width: calc(50% - 5px);
+    margin-top: 10px;
+  }
+
+  .graph-ui > div.total-pofol {
+    height: 350px;
+    display: block;
+  }
+
+  .graph-ui > div.total-pofol div.total-chart,
+  .graph-ui > div.total-pofol div.total-txt {
+    width: 100%;
+    height: 50%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .graph-ui > div.total-pofol div.total-txt button {
+    margin: 20px auto;
+  }
+
+  /* Insert Form Page Style Code */
+  .graph-ui > div.input-box {
+    padding: 10px;
+  }
+
+  .graph-ui .title-box h3 {
+    font-size: 16px;
+  }
+
+  .graph-ui div.input-box .input-tit input {
+    font-size: 12px;
+  }
+
+  .graph-ui div.input-box .input-tit select {
+    font-size: 12px;
+  }
+
+  .graph-ui div.input-box .input-tit textarea {
+    font-size: 12px;
+  }
+
+  .graph-ui .btns button {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+
+  /* Modal Content Style Code */
+  .modal-content {
+    width: 95%;
+    margin: 40% auto;
+  }
+
+  .modal-content .rate-form p label {
+    font-size: 12px;
+  }
+
+  #updateBtn {
+    font-size: 12px;
+  }
+}
