@@ -34,13 +34,7 @@
   <!-- <Media Css Link -->
   <link rel="stylesheet" href="/schedule/css/media.css">
 
-  <script defer>
-  const hostname = window.location.href;
-  console.log(hostname);
-  if (hostname == 'http://ssongd.dothome.co.kr/schedule/') {
-    window.location.replace('http://ssongd.dothome.co.kr/schedule/index.php?key=database');
-  }
-  </script>
+
 </head>
 
 <body>
@@ -50,34 +44,50 @@
 
       <?php
       include $_SERVER['DOCUMENT_ROOT']."/schedule/include/header.php";
+      include $_SERVER["DOCUMENT_ROOT"]."/connect/db_conn.php";
       ?>
 
       <section class="graph-ui">
         <div class="intro">
+          <?php
+            $sl_arr = array('database','thermometer-half','clone','bar-chart-o');
+            $sl_str="";
+            //var_dump($sl_arr);
+            //echo count($sl_arr); //4개의 array가 있다고 나옴 즉, 반복문 사용가능
+            for($i = 0; $i < count($sl_arr); $i++){
+              //echo $sl_arr[$i]; 
+            
+            $sql1 = "SELECT * FROM sp_table WHERE SP_cate='$sl_arr[$i]' ORDER BY SP_idx DESC LIMIT 1";
+            $sl_result = mysqli_query($dbConn, $sql1);
+            $sl_rewult_row = mysqli_fetch_array($sl_result);
+            $sl_idx = $sl_rewult_row['SP_idx'];
+            $sl_con = $sl_rewult_row['SP_con'];
+            $sl_cate = $sl_rewult_row['SP_cate'];
+            
+            //echo $sl_idx.'<br>';
+            //echo $sl_con.'<br>';
+            //echo $sl_cate.'<br>';
+
+            if($sl_cate == 'database'){
+              $sl_str = 'database';
+            }else if($sl_cate == 'thermometer-half'){
+              $sl_str = 'API';
+            }else if($sl_cate == 'clone'){
+              $sl_str = 'Renewal';
+            }else if($sl_cate == 'bar-chart-o'){
+              $sl_str = 'Planning';
+            };
+          ?>
+
           <div class="slide-box">
-            <h2>Database Project Process</h2>
-            <p>데이터베이스 테이블 설계 완료<br>테이블 UI 디자인 완료</p>
-            <a href="#">More Details</a>
-            <i class="fa fa-database"></i>
+            <h2><?=$sl_str?> Project Process</h2>
+            <p><?=$sl_con?></p>
+            <a href="/schedule/pages/sp_detail_view.php?pageNum=<?=$sl_idx?>">More Details</a>
+            <i class="fa fa-<?=$sl_cate?>"></i>
           </div>
-          <div class="slide-box">
-            <h2>Database Project Process</h2>
-            <p>API 테이블 설계 완료<br>테이블 UI 디자인 완료</p>
-            <a href="#">More Details</a>
-            <i class="fa fa-database"></i>
-          </div>
-          <div class="slide-box">
-            <h2>Database Project Process</h2>
-            <p>리뉴얼 테이블 설계 완료<br>테이블 UI 디자인 완료</p>
-            <a href="#">More Details</a>
-            <i class="fa fa-database"></i>
-          </div>
-          <div class="slide-box">
-            <h2>Database Project Process</h2>
-            <p>기획 테이블 테이블 설계 완료<br>테이블 UI 디자인 완료</p>
-            <a href="#">More Details</a>
-            <i class="fa fa-database"></i>
-          </div>
+          <?php
+            }
+          ?>
 
         </div>
         <div class="each-pofol">
@@ -102,30 +112,9 @@
     <!-- End of Main Dashboard Frame -->
   </div>
 
-  <!-- 2.모달 박스 UI 제작 => style.css 581번줄-->
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <!-- <span class="close" id="times">&times;</span>
-      <p>Some text in the Modal..</p> -->
-      <form action="/schedule/php/sp_rate_insert.php" class="rate-form" name="rate_form">
-
-
-      </form>
-      <div class="updateBtnBox">
-        <button type="button" id="updateBtn">Update Rate</button>
-      </div>
-      <script>
-      const updateBtn = document.querySelector('#updateBtn');
-      //const modal = document.querySelector('#myModal');
-      updateBtn.onclick = function() {
-        document.rate_form.submit();
-        modal.style.display = "none";
-      }
-      </script>
-    </div>
+  <?php
+    include $_SERVER['DOCUMENT_ROOT']."/schedule/include/modal.php";
+  ?>
 
   </div>
   <!-- Jquery Framework Load -->

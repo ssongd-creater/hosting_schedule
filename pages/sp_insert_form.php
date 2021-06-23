@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1" />
   <title>Schedule Insert</title>
 
   <!-- Favicon Link -->
@@ -70,7 +70,17 @@
           <div class="btns">
             <button type="button" onclick="spInsert()">진행 상황 작성</button>
           </div>
+
           <script>
+          document.addEventListener('keydown', function(e) {
+            const keyCode = e.keyCode;
+            //console.log(keyCode);
+            if (keyCode == 13) {
+              e.preventDefault(); //엔터의 기본 설정인 submit 기능이 없어짐
+              spInsert();
+            }
+          });
+
           function spInsert() {
             if (!document.spInputForm.spInputTit.value) {
               alert('일정 요약을 작성해 주세요');
@@ -94,46 +104,23 @@
       <?php
         include $_SERVER['DOCUMENT_ROOT']."/schedule/include/table_ui.php";
       ?>
+
     </div>
     <!-- End of Main Dashboard Frame -->
-  </div>
-
-  <!-- 2.모달 박스 UI 제작 => style.css 581번줄-->
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <!-- <span class="close" id="times">&times;</span>
-      <p>Some text in the Modal..</p> -->
-      <form action="/schedule/php/sp_rate_insert.php" class="rate-form" name="rate_form">
-
-
-      </form>
-      <div class="updateBtnBox">
-        <button type="button" id="updateBtn">Update Rate</button>
-      </div>
-      <script>
-      const updateBtn = document.querySelector('#updateBtn');
-      //const modal = document.querySelector('#myModal');
-      updateBtn.onclick = function() {
-        document.rate_form.submit();
-        modal.style.display = "none";
-      }
-      </script>
-    </div>
-
+    <?php
+        include $_SERVER['DOCUMENT_ROOT']."/schedule/include/modal.php";
+      ?>
   </div>
 
   <!-- Jquery Framework Load -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/schedule/js/modalAjax.js"></script>
   <!-- Plugins Load -->
   <script src="/schedule/lib/js/lightslider.js"></script>
   <script src="/schedule/lib/js/jquery.easypiechart.min.js"></script>
   <!-- Vanilla JS Code Load -->
   <script src="/schedule/js/index.js"></script>
   <!-- Jquery Code Load -->
-  <script src=/schedule/js/modalAjax.js></script>
   <script src=/schedule/js/total_avg.js></script>
   <script src="/schedule/js/jquery.index.js"></script>
 </body>

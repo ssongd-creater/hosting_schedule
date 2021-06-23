@@ -1,5 +1,4 @@
 <meta charset="UTF-8">
-
 <?php
 
   $sp_idx = 1;

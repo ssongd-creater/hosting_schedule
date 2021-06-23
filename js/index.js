@@ -6,12 +6,7 @@ conTxt.forEach(element => {
   element.textContent = cutTxt;
 });
 
-//Mobile Menu Activate
-const mobileMenu = document.querySelector('.mobile-menu');
 
-mobileMenu.onclick = () => {
-  mobileMenu.classList.toggle('active');
-}
 
 $(document).ready(function () {
   //Lightslider Plugin Code
@@ -32,11 +27,13 @@ $(document).ready(function () {
 //Pie Chart Rendering Code
 $(function () {
   $(window).ajaxComplete(function () {
-  let lWidth = 10;
-  let tWidth = 8;
-  let pieSize = 200;
-  let clearSet;
-  const winWidth = $(window).width();
+    let lWidth = 10;
+    let tWidth = 8;
+    let eachSize = 110;
+
+    let pieSize = 200;
+    let clearSet;
+    const winWidth = $(window).width();
 
   if (winWidth <= 1280 && winWidth > 950) {
     pieSize = 150;
@@ -55,8 +52,8 @@ $(function () {
     barColor: '#f28888',
     trackColor: '#edc0c0',
     scaleColor: false,
-    lineWidth: lWidth,
-    trackWidth: tWidth,
+    lineWidth: 18,
+    trackWidth: 18,
     lineCap: 'butt',
     size: pieSize,
     onStep: function (from, to, percent) {
@@ -88,9 +85,9 @@ $(function () {
         barColor: '#f28888',
         trackColor: '#edc0c0',
         scaleColor: false,
-        lineWidth: lWidth,
-        trackWidth: tWidth,
-        lineCap: 'round',
+        lineWidth: 18,
+        trackWidth: 18,
+        lineCap: 'butt',
         size: pieSize,
         onStep: function (from, to, percent) {
           this.el.children[0].innerHTML = Math.round(percent);
@@ -137,7 +134,7 @@ $(function () {
           lineWidth: lWidth,
           trackWidth: tWidth,
           lineCap: 'round',
-          size: 110,
+          size: eachSize,
           onStep: function (from, to, percent) {
             this.el.children[0].innerHTML = Math.round(percent);
           }
@@ -146,6 +143,23 @@ $(function () {
     }
 
     startPie();
+  });
+  //Mobile Menu Activate
+// const mobileMenu = document.querySelector('.mobile-menu');
+
+// mobileMenu.onclick = () => {
+//   mobileMenu.classList.toggle('active');
+// }
+  $(".mobile-menu").click(function () {
+    $(this).toggleClass("active");
+
+    if ($(this).hasClass("active")) {
+      $(this).next().removeClass("hide");
+      $(this).next().addClass("show");
+    } else {
+      $(this).next().removeClass("show");
+      $(this).next().addClass("hide");
+    };
   });
 });
 //Open Modal for Input Rates
