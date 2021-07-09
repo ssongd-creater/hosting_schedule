@@ -25,11 +25,11 @@ My Schedule은 각 카테고리 별 달성률을 표시해줄 뿐만 아니라 �
 ## 사용한 언어
 
 
-- HTML
-- CSS
-- JavaScript
-- JQuery
-- Xampp
+- [HTML]
+- [CSS]
+- [JavaScript]
+- [JQuery]
+- [Xampp]
 
 ## 관리자 비밀번호
 
